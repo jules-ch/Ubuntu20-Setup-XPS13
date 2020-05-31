@@ -26,6 +26,9 @@ openssh-server sshfs simplescreenrecorder nano \
 vlc gthumb gnome-tweaks ubuntu-restricted-extras thunderbird \
 gnome-tweak-tool spell synaptic -y
 
+# Install drivers
+sudo apt install oem-somerville-melisa-meta libfprint-2-tod1-goodix oem-somerville-meta tlp-config
+
 # Install fonts
 sudo apt install fonts-firacode
 sudo apt install fonts-open-sans
