@@ -36,13 +36,11 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 
 # Install fusuma for handling gestures
 
 sudo gpasswd -a $USER input
-sudo apt-get install libinput-tools xdotool
-sudo apt-get install 
+sudo apt-get install libinput-tools xdotool 
 sudo gem install fusuma
 
-# Remove undesirable packages:
+# Remove packages:
 
-sudo apt remove gstreamer1.0-fluendo-mp3 deja-dup shotwell -yy
 sudo apt remove rhythmbox -yy
 
 # Remove snaps and Add Flatpak support:
