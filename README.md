@@ -24,8 +24,6 @@ Drivers from dell focal repository
 
 [Fusuma](https://github.com/iberianpig/fusuma) for handling trackpad gestures
 
-- sshfs
-- 
 
 ## Web
 
