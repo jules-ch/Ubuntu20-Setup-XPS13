@@ -27,11 +27,10 @@ vlc gthumb gnome-tweaks ubuntu-restricted-extras thunderbird \
 gnome-tweak-tool spell synaptic -y
 
 # Install drivers
-sudo apt install oem-somerville-melisa-meta libfprint-2-tod1-goodix oem-somerville-meta tlp-config
+sudo apt install oem-somerville-melisa-meta libfprint-2-tod1-goodix oem-somerville-meta tlp-config -y
 
 # Install fonts
-sudo apt install fonts-firacode
-sudo apt install fonts-open-sans
+sudo apt install fonts-firacode fonts-open-sans -y
 
 gsettings set org.gnome.desktop.interface font-name 'Open Sans 12'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 13'
@@ -39,8 +38,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 
 # Install fusuma for handling gestures
 
 sudo gpasswd -a $USER input
-sudo apt install libinput-tools xdotool
-sudo apt install ruby
+sudo apt install libinput-tools xdotool ruby -y
 sudo gem install fusuma
 
 # Remove packages:
@@ -69,7 +67,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'Tela-grey-dark'
 
 # Add Plata-theme
 sudo add-apt-repository ppa:tista/plata-theme -y
-sudo apt update -qq && sudo apt install plata-theme
+sudo apt update -qq && sudo apt install plata-theme -y
 
 gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir"
 gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
@@ -83,7 +81,7 @@ sudo apt install \
     ca-certificates \
     curl \
     gnupg-agent \
-    software-properties-common
+    software-properties-common -y
 
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/packages.microsoft.gpg
 sudo install -o root -g root -m 644 /tmp/packages.microsoft.gpg /usr/share/keyrings/
@@ -96,14 +94,14 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code
+sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code -y
 
 # Purge Firefox, install Chromium:
 
 sudo apt remove firefox -yy
 sudo apt remove firefox-locale-en -yy
 
-sudo apt install chromium-browser
+sudo apt install chromium-browser -y
 
 ## Chat
 sudo flatpak install discord -y
