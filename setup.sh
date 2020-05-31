@@ -54,15 +54,22 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Setup GNOME material shell
 
 git clone https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo
+gnome-shell-extension-tool -e material-shell@papyelgringo
 
 # Install Icon Theme
 
 git clone https://github.com/vinceliuice/Tela-icon-theme.git /tmp/tela-icon-theme
 /tmp/tela-icon-theme/install.sh
 
+gsettings set org.gnome.desktop.interface icon-theme 'Tela-grey-dark'
+
 # Add Plata-theme
 sudo add-apt-repository ppa:tista/plata-theme -y
 sudo apt update -qq && sudo apt install plata-theme
+
+gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir"
+gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
+
 
 # Setup Development tools
 
