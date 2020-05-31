@@ -39,7 +39,8 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 
 # Install fusuma for handling gestures
 
 sudo gpasswd -a $USER input
-sudo apt-get install libinput-tools xdotool 
+sudo apt install libinput-tools xdotool
+sudo apt install ruby
 sudo gem install fusuma
 
 # Remove packages:
