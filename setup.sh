@@ -33,7 +33,7 @@ sudo apt install oem-somerville-melisa-meta libfprint-2-tod1-goodix oem-somervil
 sudo apt install fonts-firacode fonts-open-sans -y
 
 gsettings set org.gnome.desktop.interface font-name 'Open Sans 12'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code Retina 13'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 13'
 
 # Install fusuma for handling gestures
 
