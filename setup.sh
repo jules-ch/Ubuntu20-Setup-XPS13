@@ -41,6 +41,12 @@ sudo gpasswd -a $USER input
 sudo apt install libinput-tools xdotool ruby -y
 sudo gem install fusuma
 
+# Install Howdy for facial recognition
+
+sudo add-apt-repository ppa:boltgolt/howdy -y
+sudo apt update
+sudo apt install howdy -y
+
 # Remove packages:
 
 sudo apt remove rhythmbox -yy
