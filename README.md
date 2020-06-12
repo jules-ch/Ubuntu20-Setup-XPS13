@@ -44,6 +44,7 @@ Drivers from dell focal repository
 
 - Visual Studio Code
 - Docker
+- Postman
     
 ## Multimedia
 
