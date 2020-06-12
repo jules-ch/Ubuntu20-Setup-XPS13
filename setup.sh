@@ -78,6 +78,9 @@ sudo apt update -qq && sudo apt install plata-theme -y
 gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir"
 gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
 
+# Enable Shell Theme
+
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 
 # Setup Development tools
 
@@ -101,6 +104,8 @@ sudo add-apt-repository \
    stable"
 
 sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code -y
+
+sudo flatpak install postman -y
 
 # Purge Firefox, install Chromium:
 
