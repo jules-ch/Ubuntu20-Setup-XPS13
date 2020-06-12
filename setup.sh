@@ -44,7 +44,7 @@ sudo gem install fusuma
 # Install Howdy for facial recognition
 
 sudo add-apt-repository ppa:boltgolt/howdy -y
-sudo apt update
+sudo apt update -qq
 sudo apt install howdy -y
 
 # Remove packages:
