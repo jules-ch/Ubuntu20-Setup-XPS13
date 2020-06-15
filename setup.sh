@@ -59,9 +59,9 @@ gnome-software-plugin-flatpak -yy
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Setup GNOME material shell
+# Setup GNOME material shell with v1 (v2 under development)
 
-git clone https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo
+git clone --branch v1 https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo
 gnome-extensions enable material-shell@papyelgringo
 
 # Install Icon Theme
