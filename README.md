@@ -19,11 +19,10 @@ Upgrade Ubuntu to 20.04 before executing this script.
   - Open Sans (Interface)
   - Fira Code Retina (Mono)
 
-Drivers from dell focal repository
+- Drivers from dell focal repository
 - Fingerprint reader
-
-[Fusuma](https://github.com/iberianpig/fusuma) for handling trackpad gestures
-[Howdy](https://github.com/boltgolt/howdy) for authentication with facial recognition
+- [Fusuma](https://github.com/iberianpig/fusuma) for handling trackpad gestures
+- [Howdy](https://github.com/boltgolt/howdy) for authentication with facial recognition
 
 
 ## Web
