@@ -109,6 +109,9 @@ sudo add-apt-repository \
 
 sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code -y
 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
 sudo flatpak install postman -y
 
 # Purge Firefox, install Chromium:
