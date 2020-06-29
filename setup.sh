@@ -57,7 +57,9 @@ sudo snap remove gnome-characters gnome-calculator gnome-system-monitor
 sudo apt install gnome-characters gnome-calculator gnome-system-monitor \
 gnome-software-plugin-flatpak -yy
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo apt purge snapd
+
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Setup GNOME material shell with v1 (v2 under development)
 
@@ -80,7 +82,9 @@ gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
 
 # Enable Shell Theme
 
+sudo apt install gnome-shell-extensions
 gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
 
 # Setup Development tools
 
@@ -111,6 +115,7 @@ sudo flatpak install postman -y
 
 sudo apt remove firefox -yy
 sudo apt remove firefox-locale-en -yy
+sudo apt purge chrome-gnome-shell
 
 sudo apt install chromium-browser -y
 
