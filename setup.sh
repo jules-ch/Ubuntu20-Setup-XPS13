@@ -115,7 +115,7 @@ sudo flatpak install postman -y
 
 sudo apt remove firefox -yy
 sudo apt remove firefox-locale-en -yy
-sudo apt purge chrome-gnome-shell
+sudo apt purge google-chrome-stable
 
 sudo apt install chromium-browser -y
 
