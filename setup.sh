@@ -129,7 +129,8 @@ sudo flatpak install spotify -y
 ## Games
 sudo apt install -y steam-installer
 
+
 # Gotta reboot now:
-sudo apt update -qq && sudo apt upgrade -y
+sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
 
 echo $'\n'$"Ready for REBOOT"
