@@ -109,12 +109,21 @@ sudo add-apt-repository \
 
 sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code -y
 
+## Post installation for docker
+
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
+## Post installation for code (sensible defaults)
+
+code --install-extension ms-python.python
+code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension eamodio.gitlens
+code --install-extension ms-azuretools.vscode-docker
+
 sudo flatpak install postman -y
 
-# Purge Firefox, install Chromium:
+## Purge Firefox, install Chromium:
 
 sudo apt remove firefox -yy
 sudo apt remove firefox-locale-en -yy
