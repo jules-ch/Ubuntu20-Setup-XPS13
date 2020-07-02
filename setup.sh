@@ -24,6 +24,7 @@ sudo apt update -qq
 sudo apt install git htop lame net-tools flatpak audacity \
 openssh-server sshfs simplescreenrecorder nano \
 vlc gthumb gnome-tweaks ubuntu-restricted-extras thunderbird \
+python-is-python3 ffmpeg ufw \
 gnome-tweak-tool spell synaptic -y
 
 # Install drivers
@@ -82,7 +83,7 @@ gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
 
 # Enable Shell Theme
 
-sudo apt install gnome-shell-extensions
+sudo apt install gnome-shell-extensions -y
 gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
 
