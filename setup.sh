@@ -108,7 +108,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-sudo apt update -qq && sudo apt install docker-ce docker-ce-cli containerd.io code -y
+sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose containerd.io code -y
 
 ## Post installation for docker
 
