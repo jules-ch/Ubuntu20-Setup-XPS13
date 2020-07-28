@@ -124,14 +124,6 @@ code --install-extension ms-azuretools.vscode-docker
 
 sudo flatpak install postman -y
 
-## Purge Firefox, install Chromium:
-
-sudo apt remove firefox -yy
-sudo apt remove firefox-locale-en -yy
-sudo apt purge google-chrome-stable
-
-sudo apt install chromium-browser -y
-
 ## Chat
 sudo flatpak install discord -y
 
