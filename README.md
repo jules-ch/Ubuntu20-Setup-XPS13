@@ -22,7 +22,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Drivers from dell focal repository
 - Fingerprint reader
 - [Fusuma](https://github.com/iberianpig/fusuma) for handling trackpad gestures
-- [Howdy](https://github.com/boltgolt/howdy) for authentication with facial recognition
+- [Howdy](https://github.com/boltgolt/howdy) for authentication with facial recognition **(Optional)**
 
 
 ## Web
@@ -44,6 +44,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Visual Studio Code
 - Docker
 - Postman
+- Web Development (Node + Yarn) **(Optional)**
     
 ## Multimedia
 
