@@ -24,7 +24,7 @@ sudo apt update -qq
 sudo apt install git htop lame net-tools flatpak audacity \
 openssh-server sshfs simplescreenrecorder nano \
 vlc gthumb gnome-tweaks ubuntu-restricted-extras thunderbird \
-python-is-python3 ffmpeg ufw \
+ffmpeg ufw \
 gnome-tweak-tool spell synaptic -y -qq
 
 # Install drivers
@@ -49,7 +49,7 @@ case "$choice" in
   y|Y ) 
   echo "Installing Howdy"
   sudo add-apt-repository ppa:boltgolt/howdy -y > /dev/null 2>&1
-sudo apt update -qq
+  sudo apt update -qq
   sudo apt install howdy -y;;
   n|N ) 
   echo "Skipping Install of Howdy";;
@@ -98,13 +98,15 @@ gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
 
 # Setup Development tools
 
-# Update python essentials
+## Update python essentials
+sudo apt install python3.9 python-is-python3 -y
 sudo python3 -m pip install -U pip setuptools wheel
+python -m pip install --user black
 
-# Add build essentials
+## Add build essentials
 sudo apt install build-essential -y
 
-# Add Java JDK LTS
+## Add Java JDK LTS
 sudo apt install openjdk-11-jdk -y
 
 sudo apt remove docker docker-engine docker.io containerd runc
