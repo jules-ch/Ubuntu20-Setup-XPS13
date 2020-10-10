@@ -155,6 +155,32 @@ case "$choice" in
   echo "Skipping Install of JS SDKs";;
   * ) echo "invalid";;
 esac
+
+read -p "Mobile development (Android) (y/n)?" choice
+case "$choice" in 
+  y|Y ) 
+  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+  wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.0.2.0/android-studio-ide-193.6821437-linux.tar.gz -O /tmp/android-studio-ide-193.6821437-linux.tar.gz 
+  sudo tar -xzf /tmp/android-studio-ide-193.6821437-linux.tar.gz -C /opt 
+  sudo sh -c 'cat > /usr/share/applications/jetbrains-studio.desktop << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio
+Icon=/opt/android-studio/bin/studio.svg
+Exec="/opt/android-studio/bin/studio.sh" nosplash %f
+Comment=The Drive to Develop
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-studio
+EOF'
+  sudo chmod 644 /usr/share/applications/jetbrains-studio.desktop
+  ;;
+  n|N ) 
+  echo "Skipping Install of Android SDKs";;
+  * ) echo "invalid";;
+esac
+
 ## Chat
 sudo flatpak install discord -y
 
