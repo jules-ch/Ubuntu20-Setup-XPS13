@@ -99,7 +99,7 @@ gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
 # Setup Development tools
 
 ## Update python essentials
-sudo apt install python3.9 python-is-python3 -y
+sudo apt install python3 python-is-python3 -y
 sudo python3 -m pip install -U pip setuptools wheel
 python -m pip install --user black
 

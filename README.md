@@ -25,10 +25,6 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - [Howdy](https://github.com/boltgolt/howdy) for authentication with facial recognition **(Optional)**
 
 
-## Web
-
-- Chromium
-
 ## Social
 
 - Discord
@@ -44,7 +40,10 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Visual Studio Code
 - Docker
 - Postman
-- Web Development (Node + Yarn) **(Optional)**
+- Python 3
+- Java (OpenJDK 11 LTS)
+- Web Development (Node.js LTS + Yarn) **(Optional)**
+- Mobile Development (Android Studio 4.0) **(Optional)**
     
 ## Multimedia
 
