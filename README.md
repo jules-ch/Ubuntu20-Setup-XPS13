@@ -43,7 +43,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Python 3
 - Java (OpenJDK 11 LTS)
 - Web Development (Node.js LTS + Yarn) **(Optional)**
-- Mobile Development (Android Studio 4.0) **(Optional)**
+- Mobile Development (Android Studio 4.1) **(Optional)**
     
 ## Multimedia
 

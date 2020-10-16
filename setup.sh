@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x 
+set -ex 
 
 sudo rm -f /etc/apt/sources.list.d/*bionic* # remove bionic repositories
 
@@ -43,18 +43,19 @@ sudo apt install libinput-tools xdotool ruby -y -qq
 sudo gem install --silent fusuma
 
 # Install Howdy for facial recognition
-
-read -p "Facial recognition with Howdy (y/n)?" choice
-case "$choice" in 
-  y|Y ) 
-  echo "Installing Howdy"
-  sudo add-apt-repository ppa:boltgolt/howdy -y > /dev/null 2>&1
-  sudo apt update -qq
-  sudo apt install howdy -y;;
-  n|N ) 
-  echo "Skipping Install of Howdy";;
-  * ) echo "invalid";;
-esac
+while true; do
+  read -p "Facial recognition with Howdy (y/n)?" choice
+  case "$choice" in 
+    y|Y ) 
+    echo "Installing Howdy"
+    sudo add-apt-repository ppa:boltgolt/howdy -y > /dev/null 2>&1
+    sudo apt update -qq
+    sudo apt install howdy -y; break;;
+    n|N ) 
+    echo "Skipping Install of Howdy"; break;;
+    * ) echo "invalid";;
+  esac
+done
 
 
 # Remove packages:
@@ -63,7 +64,7 @@ sudo apt remove rhythmbox -y -q
 
 # Remove snaps and Add Flatpak support:
 
-sudo snap remove gnome-characters gnome-calculator gnome-system-monitor
+sudo snap remove gnome-characters gnome-calculator gnome-system-monitor || true
 sudo apt install gnome-characters gnome-calculator gnome-system-monitor \
 gnome-software-plugin-flatpak -y
 
@@ -73,11 +74,11 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 
 # Setup GNOME material shell
 
-git clone https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo
+git clone https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo || true
 gnome-extensions enable material-shell@papyelgringo
 
 # Install Icon Theme
-
+[[ -d /tmp/tela-icon-theme ]] && rm -rf /tmp/tela-icon-theme
 git clone https://github.com/vinceliuice/Tela-icon-theme.git /tmp/tela-icon-theme > /dev/null 2>&1
 /tmp/tela-icon-theme/install.sh -a
 
@@ -132,7 +133,7 @@ sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose c
 
 ## Post installation for docker
 
-sudo groupadd docker
+sudo groupadd -f docker
 sudo usermod -aG docker $USER
 
 ## Post installation for code (sensible defaults)
@@ -144,27 +145,32 @@ code --install-extension ms-azuretools.vscode-docker
 
 sudo flatpak install postman -y
 
-read -p "Web development (y/n)?" choice
-case "$choice" in 
-  y|Y ) 
-  echo "Installing Node JS"
-  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  sudo apt-get install -y nodejs 
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list 
-  sudo apt-get update -qq && sudo apt-get install -y yarn ;;
-  n|N ) 
-  echo "Skipping Install of JS SDKs";;
-  * ) echo "invalid";;
-esac
+while true; do
+  read -p "Web development (y/n)?" choice
+  case "$choice" in 
+    y|Y ) 
+    echo "Installing Node JS"
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    sudo apt-get install -y nodejs 
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list 
+    sudo apt-get update -qq && sudo apt-get install -y yarn; break;;
+    n|N ) 
+    echo "Skipping Install of JS SDKs"; break;;
+    * ) echo "invalid";;
+  esac
+done
 
-read -p "Mobile development (Android) (y/n)?" choice
-case "$choice" in 
-  y|Y ) 
-  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-  wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.0.2.0/android-studio-ide-193.6821437-linux.tar.gz -O /tmp/android-studio-ide-193.6821437-linux.tar.gz 
-  sudo tar -xzf /tmp/android-studio-ide-193.6821437-linux.tar.gz -C /opt 
-  sudo sh -c 'cat > /usr/share/applications/jetbrains-studio.desktop << EOF
+
+# Setup Android Studio for Mobile Development
+while true; do
+  read -p "Mobile development (Android) (y/n)?" choice
+  case "$choice" in 
+    y|Y ) 
+    sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+    wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.1.0.19/android-studio-ide-201.6858069-linux.tar.gz -O /tmp/android-studio-ide-201.6858069-linux.tar.gz 
+    sudo tar -xzf /tmp/android-studio-ide-201.6858069-linux.tar.gz -C /opt 
+    sudo sh -c 'cat > /usr/share/applications/jetbrains-studio.desktop << EOF
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -176,12 +182,12 @@ Categories=Development;IDE;
 Terminal=false
 StartupWMClass=jetbrains-studio
 EOF'
-  sudo chmod 644 /usr/share/applications/jetbrains-studio.desktop
-  ;;
-  n|N ) 
-  echo "Skipping Install of Android SDKs";;
-  * ) echo "invalid";;
-esac
+    sudo chmod 644 /usr/share/applications/jetbrains-studio.desktop; break;;
+    n|N ) 
+    echo "Skipping Install of Android SDKs"; break;;
+    * ) echo "invalid";;
+  esac
+done
 
 ## Chat
 sudo flatpak install discord -y
@@ -189,10 +195,6 @@ sudo flatpak install discord -y
 ## Multimedia
 sudo apt install -y gimp
 sudo flatpak install spotify -y
-
-## Games
-sudo apt install -y steam-installer
-
 
 # Gotta reboot now:
 sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
