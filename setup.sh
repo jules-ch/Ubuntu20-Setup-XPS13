@@ -19,6 +19,8 @@ deb http://dell.archive.canonical.com/updates/ focal-somerville-melisa public
 # deb-src http://dell.archive.canonical.com/updates focal-somerville-melisa public
 EOF'
 
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9FDA6BED73CDC22
+
 sudo apt update -qq
 
 sudo apt install git htop lame net-tools flatpak audacity \
@@ -135,6 +137,15 @@ sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose c
 
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
+
+## Setup 
+wget https://golang.org/dl/go1.15.3.linux-amd64.tar.gz -O /tmp/go1.15.3.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.15.3.linux-amd64.tar.gz
+
+if ! grep -qF "export PATH=$PATH:/usr/local/go/bin" /etc/profile; then
+  echo "export PATH=$PATH:/usr/local/go/bin" >> 
+fi
+
 
 ## Post installation for code (sensible defaults)
 
