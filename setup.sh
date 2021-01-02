@@ -138,12 +138,12 @@ sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose c
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
 
-## Setup 
-wget https://golang.org/dl/go1.15.3.linux-amd64.tar.gz -O /tmp/go1.15.3.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.15.3.linux-amd64.tar.gz
+## Install Go
+wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /tmp/go1.15.6.linux-amd64.tar.gz
+tar -C /usr/local -xzf /tmp/go1.15.6.linux-amd64.tar.gz
 
-if ! grep -qF "export PATH=$PATH:/usr/local/go/bin" /etc/profile; then
-  echo "export PATH=$PATH:/usr/local/go/bin" >> 
+if ! grep -qF "export PATH=\$PATH:/usr/local/go/bin" /etc/profile; then
+  sudo sh -c 'echo "export PATH=\$PATH:/usr/local/go/bin" >> /etc/profile'
 fi
 
 

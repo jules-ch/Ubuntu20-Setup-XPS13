@@ -42,6 +42,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Postman
 - Python 3
 - Java (OpenJDK 11 LTS)
+- Go 1.15.6
 - Web Development (Node.js LTS + Yarn) **(Optional)**
 - Mobile Development (Android Studio 4.1) **(Optional)**
     
