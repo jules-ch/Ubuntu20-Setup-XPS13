@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run script
+        run: |
+          wget https://raw.githubusercontent.com/jules-ch/Ubuntu20-Setup-XPS13/master/setup.sh && sudo chmod +x setup.sh
+          yes | sudo setup.sh
