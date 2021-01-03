@@ -17,4 +17,4 @@ jobs:
       - name: Run script
         run: |
           wget https://raw.githubusercontent.com/jules-ch/Ubuntu20-Setup-XPS13/master/setup.sh && sudo chmod +x setup.sh
-          yes | sudo setup.sh
+          yes | sudo ./setup.sh
