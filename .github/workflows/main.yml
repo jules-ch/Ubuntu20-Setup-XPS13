@@ -16,4 +16,4 @@ jobs:
 
       - name: Run script
         run: |
-          yes | sudo ./setup.sh
+          yes | ./setup.sh
