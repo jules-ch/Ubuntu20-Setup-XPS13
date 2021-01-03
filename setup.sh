@@ -140,7 +140,7 @@ sudo usermod -aG docker $USER
 
 ## Install Go
 wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /tmp/go1.15.6.linux-amd64.tar.gz
-tar -C /usr/local -xzf /tmp/go1.15.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go1.15.6.linux-amd64.tar.gz
 
 if ! grep -qF "export PATH=\$PATH:/usr/local/go/bin" /etc/profile; then
   sudo sh -c 'echo "export PATH=\$PATH:/usr/local/go/bin" >> /etc/profile'
