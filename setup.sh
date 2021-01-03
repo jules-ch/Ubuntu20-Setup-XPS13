@@ -72,7 +72,7 @@ gnome-software-plugin-flatpak -y
 
 sudo apt purge snapd
 
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Setup GNOME material shell
 
@@ -154,7 +154,7 @@ code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension eamodio.gitlens
 code --install-extension ms-azuretools.vscode-docker
 
-sudo flatpak install postman -y
+flatpak install postman -y
 
 while true; do
   read -p "Web development (y/n)?" choice
@@ -201,11 +201,11 @@ EOF'
 done
 
 ## Chat
-sudo flatpak install discord -y
+flatpak install discord -y
 
 ## Multimedia
 sudo apt install -y gimp
-sudo flatpak install spotify -y
+flatpak install spotify -y
 
 # Gotta reboot now:
 sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
