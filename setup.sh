@@ -112,7 +112,6 @@ sudo apt install build-essential -y
 ## Add Java JDK LTS
 sudo apt install openjdk-11-jdk -y
 
-sudo apt remove docker docker-engine docker.io containerd runc
 sudo apt install \
     apt-transport-https \
     ca-certificates \
@@ -130,7 +129,7 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable" > /dev/null 2>&1
-
+sudo apt remove docker docker-engine docker.io containerd runc
 sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose containerd.io code -y
 
 ## Post installation for docker
