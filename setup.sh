@@ -64,7 +64,7 @@ sudo apt remove rhythmbox -y -q
 
 sudo apt install gnome-software-plugin-flatpak -y
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Setup GNOME material shell
 
