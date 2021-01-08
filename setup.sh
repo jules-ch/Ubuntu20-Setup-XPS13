@@ -59,18 +59,13 @@ while true; do
   esac
 done
 
-
 # Remove packages:
 
 sudo apt remove rhythmbox -y -q
 
-# Remove snaps and Add Flatpak support:
+# Add Flatpak support:
 
-sudo snap remove gnome-characters gnome-calculator gnome-system-monitor || true
-sudo apt install gnome-characters gnome-calculator gnome-system-monitor \
-gnome-software-plugin-flatpak -y
-
-sudo apt purge snapd
+sudo apt install gnome-software-plugin-flatpak -y
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -102,7 +97,7 @@ gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
 # Setup Development tools
 
 ## Update python essentials
-sudo apt install python3 python-is-python3 -y
+sudo apt install python3 python3-pip python-is-python3 -y
 sudo python3 -m pip install -U pip setuptools wheel
 python -m pip install --user black
 
