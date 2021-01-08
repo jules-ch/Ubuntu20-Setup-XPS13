@@ -1,7 +1,10 @@
 #!/bin/bash
-set -ex 
+set -ex
 
-sudo rm -f /etc/apt/sources.list.d/*bionic* # remove bionic repositories
+# Ensure repositories are enabled
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo add-apt-repository restricted
 
 # Add dell drivers for focal fossa
 
@@ -31,12 +34,6 @@ gnome-tweak-tool spell synaptic -y -qq
 
 # Install drivers
 sudo apt install oem-somerville-melisa-meta libfprint-2-tod1-goodix oem-somerville-meta tlp-config -y
-
-# Install fonts
-sudo apt install fonts-firacode fonts-open-sans -y -qq
-
-gsettings set org.gnome.desktop.interface font-name 'Open Sans 12'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 13'
 
 # Install fusuma for handling gestures
 
@@ -93,6 +90,12 @@ gsettings set org.gnome.desktop.wm.preferences theme "Plata-Noir"
 sudo apt install gnome-shell-extensions -y
 gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 gsettings set org.gnome.shell.extensions.user-theme name "Plata-Noir"
+
+# Install fonts
+sudo apt install fonts-firacode fonts-open-sans -y -qq
+
+gsettings set org.gnome.desktop.interface font-name 'Open Sans 12'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 13'
 
 # Setup Development tools
 
