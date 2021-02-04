@@ -177,8 +177,8 @@ while true; do
     y|Y ) 
     sudo dpkg --add-architecture i386 && sudo apt update -qq
     sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-    wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.1.0.19/android-studio-ide-201.6858069-linux.tar.gz -O /tmp/android-studio-ide-201.6858069-linux.tar.gz 
-    sudo tar -xzf /tmp/android-studio-ide-201.6858069-linux.tar.gz -C /opt 
+    wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.1.2.0/android-studio-ide-201.7042882-linux.tar.gz -O /tmp/android-studio-ide-201.7042882-linux.tar.gz
+    sudo tar -xzf /tmp/android-studio-ide-201.7042882-linux.tar.gz -C /opt 
     sudo sh -c 'cat > /usr/share/applications/jetbrains-studio.desktop << EOF
 [Desktop Entry]
 Version=1.0
