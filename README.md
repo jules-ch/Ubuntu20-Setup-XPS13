@@ -4,6 +4,10 @@
 wget https://raw.githubusercontent.com/jules-ch/Ubuntu20-Setup-XPS13/master/setup.sh && sudo chmod +x setup.sh && ./setup.sh
 ```
 
+## Custom this script
+
+If this scripts doesn't suit your needs, do not hesitate to fork & edit to fit your needs.
+
 ## Prerequisistes
 
 XPS 9300 comes with Bionic Beaver 18.04 pre-installed. 
@@ -42,8 +46,8 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Postman
 - Python 3
 - Java (OpenJDK 11 LTS)
-- Go 1.15.6
-- Web Development (Node.js LTS + Yarn) **(Optional)**
+- Go 1.16
+- Web Development (Node.js 14 LTS + Yarn)
 - Mobile Development (Android Studio 4.1) **(Optional)**
     
 ## Multimedia

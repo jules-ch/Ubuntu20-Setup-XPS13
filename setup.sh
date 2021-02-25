@@ -26,6 +26,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9FDA6BED73CDC22
 
 sudo apt update -qq
 
+# Install general utilities
 sudo apt install git htop lame net-tools flatpak audacity \
 openssh-server sshfs simplescreenrecorder nano \
 vlc gthumb gnome-tweaks ubuntu-restricted-extras thunderbird \
@@ -66,11 +67,6 @@ sudo apt install gnome-software-plugin-flatpak -y
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Setup GNOME material shell
-
-git clone https://github.com/PapyElGringo/material-shell.git ~/.local/share/gnome-shell/extensions/material-shell@papyelgringo || true
-gnome-extensions enable material-shell@papyelgringo
-
 # Install Icon Theme
 [[ -d /tmp/tela-icon-theme ]] && rm -rf /tmp/tela-icon-theme
 git clone https://github.com/vinceliuice/Tela-icon-theme.git /tmp/tela-icon-theme > /dev/null 2>&1
@@ -102,7 +98,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 13'
 ## Update python essentials
 sudo apt install python3 python3-pip python-is-python3 -y
 sudo python3 -m pip install -U pip setuptools wheel
-python -m pip install --user black
+python3 -m pip install --user black
 
 ## Add build essentials
 sudo apt install build-essential -y
@@ -127,7 +123,6 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable" > /dev/null 2>&1
-sudo apt remove docker docker-engine docker.io containerd runc
 sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose containerd.io code -y
 
 ## Post installation for docker
@@ -136,12 +131,13 @@ sudo groupadd -f docker
 sudo usermod -aG docker $USER
 
 ## Install Go
-wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz -O /tmp/go1.15.6.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf /tmp/go1.15.6.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.16.linux-amd64.tar.gz -O /tmp/go1.16.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go1.16.linux-amd64.tar.gz
 
 if ! grep -qF "export PATH=\$PATH:/usr/local/go/bin" /etc/profile; then
   sudo sh -c 'echo "export PATH=\$PATH:/usr/local/go/bin" >> /etc/profile'
 fi
+
 
 
 ## Post installation for code (sensible defaults)
@@ -151,23 +147,22 @@ code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension eamodio.gitlens
 code --install-extension ms-azuretools.vscode-docker
 
-flatpak install postman -y
+sudo flatpak install postman -y
 
-while true; do
-  read -p "Web development (y/n)?" choice
-  case "$choice" in 
-    y|Y ) 
-    echo "Installing Node JS"
-    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-    sudo apt-get install -y nodejs 
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list 
-    sudo apt-get update -qq && sudo apt-get install -y yarn; break;;
-    n|N ) 
-    echo "Skipping Install of JS SDKs"; break;;
-    * ) echo "invalid";;
-  esac
-done
+# Node Install
+
+echo "Installing Node 14 JS LTS"
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs 
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list 
+sudo apt-get update -qq && sudo apt-get install -y yarn
+
+
+# Setup GNOME material shell (Need node for compilation)
+
+git clone https://github.com/PapyElGringo/material-shell.git ~/material-shell || true
+make -C ~/material-shell/ install
 
 
 # Setup Android Studio for Mobile Development
@@ -199,11 +194,11 @@ EOF'
 done
 
 ## Chat
-flatpak install discord -y
+sudo flatpak install discord -y
 
 ## Multimedia
 sudo apt install -y gimp
-flatpak install spotify -y
+sudo flatpak install spotify -y
 
 # Gotta reboot now:
 sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
