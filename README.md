@@ -1,10 +1,17 @@
 # Ubuntu Focal Fossa 20.04 Setup on XPS 13 9300
 
+[![CI](https://github.com/jules-ch/Ubuntu20-Setup-XPS13/actions/workflows/main.yml/badge.svg)](https://github.com/jules-ch/Ubuntu20-Setup-XPS13/actions/workflows/main.yml)
+
+This script is made to getting you started on your XPS 13 Developper Edition with drivers & popular SDKs.
+
+This script is regularly tested on Ubuntu 20.04 through Github Actions.
+It will take approximately 20 min for the full installation.
+
 ```bash
 wget https://raw.githubusercontent.com/jules-ch/Ubuntu20-Setup-XPS13/master/setup.sh && sudo chmod +x setup.sh && ./setup.sh
 ```
 
-## Custom this script
+## Customize this script
 
 If this scripts doesn't suit your needs, do not hesitate to fork & edit to fit your needs.
 
@@ -47,6 +54,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Python 3
 - Java (OpenJDK 11 LTS)
 - Go 1.16
+- .NET Core 5 SDK & Runtime
 - Web Development (Node.js 14 LTS + Yarn)
 - Mobile Development (Android Studio 4.1) **(Optional)**
     
