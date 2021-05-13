@@ -6,7 +6,7 @@ sudo add-apt-repository universe
 sudo add-apt-repository multiverse
 sudo add-apt-repository restricted
 
-# Add dell drivers for focal fossa
+# Add dell drivers for focal fossa XPS 13
 
 sudo sh -c 'cat > /etc/apt/sources.list.d/focal-dell.list << EOF
 deb http://dell.archive.canonical.com/updates/ focal-dell public
@@ -130,6 +130,14 @@ sudo apt update -qq && sudo apt install docker-ce docker-ce-cli docker-compose c
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
 
+## Post installation for code (sensible defaults)
+
+code --install-extension ms-python.python
+code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension eamodio.gitlens
+code --install-extension ms-azuretools.vscode-docker
+
+
 ## Install Go
 wget https://golang.org/dl/go1.16.linux-amd64.tar.gz -O /tmp/go1.16.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf /tmp/go1.16.linux-amd64.tar.gz
@@ -138,18 +146,17 @@ if ! grep -qF "export PATH=\$PATH:/usr/local/go/bin" /etc/profile; then
   sudo sh -c 'echo "export PATH=\$PATH:/usr/local/go/bin" >> /etc/profile'
 fi
 
+## Install dotnet-core sdk + runtime
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
 
-
-## Post installation for code (sensible defaults)
-
-code --install-extension ms-python.python
-code --install-extension visualstudioexptteam.vscodeintellicode
-code --install-extension eamodio.gitlens
-code --install-extension ms-azuretools.vscode-docker
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-5.0
+sudo apt-get install -y aspnetcore-runtime-5.0
 
 sudo flatpak install postman -y
 
-# Node Install
+## Node.JS + Yarn Install
 
 echo "Installing Node 14 JS LTS"
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -159,7 +166,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update -qq && sudo apt-get install -y yarn
 
 
-# Setup GNOME material shell (Need node for compilation)
+# Setup GNOME material shell (Need Node.js for compilation of the Typescript extension)
 
 git clone https://github.com/PapyElGringo/material-shell.git ~/material-shell || true
 make -C ~/material-shell/ install
