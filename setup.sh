@@ -168,7 +168,7 @@ sudo apt-get update -qq && sudo apt-get install -y yarn
 
 # Setup GNOME material shell (Need Node.js for compilation of the Typescript extension)
 
-git clone https://github.com/PapyElGringo/material-shell.git ~/material-shell || true
+git clone -b 3.38 https://github.com/PapyElGringo/material-shell.git ~/material-shell || true
 make -C ~/material-shell/ install
 
 
