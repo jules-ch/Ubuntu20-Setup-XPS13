@@ -23,7 +23,6 @@ Upgrade Ubuntu to 20.04 before executing this script.
 ## General
 
 - **Shell** : Gnome Shell
-- **Gnome extensions** : [Material Shell](https://github.com/material-shell/material-shell)
 - **Theme** : [Plata Theme Noir](https://gitlab.com/tista500/plata-theme)
 - **Icon** : [Tela](https://github.com/vinceliuice/Tela-icon-theme)
 - **Fonts** :
@@ -55,7 +54,7 @@ Upgrade Ubuntu to 20.04 before executing this script.
 - Java (OpenJDK 11 LTS)
 - Go 1.16
 - .NET Core 5 SDK & Runtime
-- Web Development (Node.js 14 LTS + Yarn)
+- Web Development (Node.js 18 LTS + Yarn)
 - Mobile Development (Android Studio 4.1) **(Optional)**
     
 ## Multimedia
