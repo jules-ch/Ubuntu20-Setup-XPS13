@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -ex
 
 # Ensure repositories are enabled
@@ -182,8 +182,8 @@ while true; do
     y|Y ) 
     sudo dpkg --add-architecture i386 && sudo apt update -qq
     sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-    wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.1.2.0/android-studio-ide-201.7042882-linux.tar.gz -O /tmp/android-studio-ide-201.7042882-linux.tar.gz
-    sudo tar -xzf /tmp/android-studio-ide-201.7042882-linux.tar.gz -C /opt 
+    wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.3.1.19/android-studio-2022.3.1.19-linux.tar.gz -O /tmp/android-studio-2022.3.1.19-linux.tar.gz
+    sudo tar -xzf /tmp/android-studio-2022.3.1.19-linux.tar.gz -C /opt 
     sudo sh -c 'cat > /usr/share/applications/jetbrains-studio.desktop << EOF
 [Desktop Entry]
 Version=1.0
@@ -204,7 +204,7 @@ EOF'
 done
 
 ## Chat
-sudo flatpak install discord -y
+sudo flatpak install app/com.discordapp.Discord/x86_64/stable -y
 
 ## Multimedia
 sudo apt install -y gimp
